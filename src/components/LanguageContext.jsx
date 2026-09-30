@@ -104,17 +104,18 @@ const translations = {
       title: 'Contact Us',
       subtitle: 'Get in Touch',
       description: 'Ready to enhance your security? Our team is here to help you find the perfect solution.',
-      form: {
-        name: 'Full Name',
-        email: 'Email Address',
-        phone: 'Phone Number',
-        company: 'Company Name',
-        service: 'Service Interest',
-        selectService: 'Select a service',
-        message: 'Your Message',
-        submit: 'Send Message',
-        sending: 'Sending...',
-        error: 'Something went wrong and your message was not sent. Please try again or call us at 6973847867.'
+      call: {
+        title: 'Talk Directly to a Security Expert',
+        description: 'The fastest way to find the right security solution is a quick phone call. Tell us about your premises and your needs, and we will guide you personally.',
+        label: 'Call us',
+        button: 'Call Now',
+        stepsTitle: 'What happens when you call',
+        steps: [
+          'You tell us about your premises and what you want to protect',
+          'We recommend the solution that fits your needs',
+          'You receive a detailed, no-obligation quote'
+        ],
+        emailPrefix: 'Prefer to write? Email us at'
       },
       info: {
         phone: 'Phone',
@@ -277,17 +278,18 @@ const translations = {
       title: 'Επικοινωνία',
       subtitle: 'Επικοινωνήστε Μαζί μας',
       description: 'Έτοιμοι να ενισχύσετε την ασφάλειά σας; Η ομάδα μας είναι εδώ για να σας βοηθήσει να βρείτε την τέλεια λύση.',
-      form: {
-        name: 'Πλήρες Όνομα',
-        email: 'Διεύθυνση Email',
-        phone: 'Τηλέφωνο',
-        company: 'Όνομα Εταιρείας',
-        service: 'Ενδιαφέρον Υπηρεσίας',
-        selectService: 'Επιλέξτε υπηρεσία',
-        message: 'Το Μήνυμά σας',
-        submit: 'Αποστολή Μηνύματος',
-        sending: 'Αποστολή...',
-        error: 'Κάτι πήγε στραβά και το μήνυμά σας δεν στάλθηκε. Δοκιμάστε ξανά ή καλέστε μας στο 6973847867.'
+      call: {
+        title: 'Μιλήστε Απευθείας με Έναν Ειδικό',
+        description: 'Ο πιο γρήγορος τρόπος να βρείτε τη σωστή λύση ασφάλειας είναι ένα τηλεφώνημα. Πείτε μας για τον χώρο και τις ανάγκες σας και θα σας καθοδηγήσουμε προσωπικά.',
+        label: 'Καλέστε μας',
+        button: 'Καλέστε Τώρα',
+        stepsTitle: 'Τι γίνεται όταν μας καλέσετε',
+        steps: [
+          'Μας περιγράφετε τον χώρο σας και τι θέλετε να προστατέψετε',
+          'Σας προτείνουμε τη λύση που ταιριάζει στις ανάγκες σας',
+          'Λαμβάνετε αναλυτική προσφορά χωρίς καμία δέσμευση'
+        ],
+        emailPrefix: 'Προτιμάτε γραπτή επικοινωνία; Στείλτε μας email στο'
       },
       info: {
         phone: 'Τηλέφωνο',
