@@ -17,7 +17,7 @@ import {
 } from '@/components/ui/select';
 
 // Public key from web3forms.com; submissions are emailed to the address it was created for.
-const WEB3FORMS_ACCESS_KEY = 'YOUR_ACCESS_KEY';
+const WEB3FORMS_ACCESS_KEY = '6827dbbb-a054-46fd-b3d7-07aed57a4452';
 
 export default function Contact() {
   const { t, language } = useLanguage();
