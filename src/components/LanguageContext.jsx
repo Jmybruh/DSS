@@ -113,7 +113,8 @@ const translations = {
         selectService: 'Select a service',
         message: 'Your Message',
         submit: 'Send Message',
-        sending: 'Sending...'
+        sending: 'Sending...',
+        error: 'Something went wrong and your message was not sent. Please try again or call us at 6973847867.'
       },
       info: {
         phone: 'Phone',
@@ -285,7 +286,8 @@ const translations = {
         selectService: 'Επιλέξτε υπηρεσία',
         message: 'Το Μήνυμά σας',
         submit: 'Αποστολή Μηνύματος',
-        sending: 'Αποστολή...'
+        sending: 'Αποστολή...',
+        error: 'Κάτι πήγε στραβά και το μήνυμά σας δεν στάλθηκε. Δοκιμάστε ξανά ή καλέστε μας στο 6973847867.'
       },
       info: {
         phone: 'Τηλέφωνο',

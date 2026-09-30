@@ -16,6 +16,9 @@ import {
   SelectValue 
 } from '@/components/ui/select';
 
+// Public key from web3forms.com; submissions are emailed to the address it was created for.
+const WEB3FORMS_ACCESS_KEY = 'YOUR_ACCESS_KEY';
+
 export default function Contact() {
   const { t, language } = useLanguage();
   const [formData, setFormData] = useState({
@@ -28,6 +31,8 @@ export default function Contact() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
+  const [botcheck, setBotcheck] = useState(false);
 
   const services = language === 'en' 
     ? [
@@ -60,10 +65,33 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    setIsSubmitting(false);
-    setIsSubmitted(true);
+    setSubmitError(false);
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          subject: `Νέο μήνυμα από το site: ${formData.name}`,
+          from_name: 'DSS Security Solutions Website',
+          botcheck: botcheck,
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          company: formData.company,
+          service: formData.service,
+          message: formData.message,
+        }),
+      });
+      const result = await response.json();
+      if (!result.success) throw new Error(result.message);
+      setIsSubmitted(true);
+    } catch (error) {
+      console.error('Contact form submission failed:', error);
+      setSubmitError(true);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
@@ -194,6 +222,17 @@ export default function Contact() {
                     </div>
 
                     <form onSubmit={handleSubmit} className="space-y-6">
+                      {/* Honeypot: hidden from people, bots that tick it are rejected by Web3Forms */}
+                      <input
+                        type="checkbox"
+                        name="botcheck"
+                        className="hidden"
+                        style={{ display: 'none' }}
+                        tabIndex={-1}
+                        autoComplete="off"
+                        checked={botcheck}
+                        onChange={(e) => setBotcheck(e.target.checked)}
+                      />
                       <div className="grid md:grid-cols-2 gap-6">
                         <div>
                           <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -281,6 +320,12 @@ export default function Contact() {
                           className="min-h-[150px] border-gray-200 focus:border-[#17A2B8] focus:ring-[#17A2B8]"
                         />
                       </div>
+
+                      {submitError && (
+                        <p className="text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg p-3">
+                          {t.contact.form.error}
+                        </p>
+                      )}
 
                       <Button
                         type="submit"
