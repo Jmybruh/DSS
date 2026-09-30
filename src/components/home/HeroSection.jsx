@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 import { useLanguage } from '../LanguageContext';
 import { motion } from 'framer-motion';
-import { ArrowRight, Shield, Play } from 'lucide-react';
+import { ArrowRight, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export default function HeroSection() {
@@ -175,7 +175,7 @@ export default function HeroSection() {
                     className="relative z-10"
                   >
                     <img 
-                      src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69524d7a768021f10011ca14/ba3b2d486_pictoart_1767861465359.png"
+                      src="/logo.png"
                       alt="DSS Logo"
                       loading="eager"
                       className="w-64 h-64 rounded-full object-cover shadow-2xl ring-8 ring-white/20"

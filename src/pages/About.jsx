@@ -4,7 +4,7 @@ import { createPageUrl } from '@/utils';
 import { useLanguage } from '@/components/LanguageContext';
 import { motion } from 'framer-motion';
 import { 
-  Shield, Target, Eye, Award, Users, Lightbulb, 
+  Shield, Target, Eye, Award, Lightbulb, 
   Heart, CheckCircle, ArrowRight 
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';

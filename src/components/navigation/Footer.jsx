@@ -40,7 +40,7 @@ export default function Footer() {
           <div className="lg:col-span-1">
             <div className="mb-6">
               <img 
-                src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69524d7a768021f10011ca14/ba3b2d486_pictoart_1767861465359.png"
+                src="/logo.png"
                 alt="DSS - Digital Security Systems"
                 loading="eager"
                 className="h-20 w-20 rounded-full object-cover shadow-xl ring-4 ring-white/10"

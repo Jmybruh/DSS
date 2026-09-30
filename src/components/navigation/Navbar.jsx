@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 import { useLanguage } from '../LanguageContext';
-import { Menu, X, Shield, Globe } from 'lucide-react';
+import { Menu, X, Globe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -39,7 +39,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link to={createPageUrl('Home')} className="flex items-center group">
             <img 
-              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69524d7a768021f10011ca14/ba3b2d486_pictoart_1767861465359.png"
+              src="/logo.png"
               alt="DSS - Digital Security Systems"
               loading="eager"
               className="h-14 w-14 rounded-full object-cover shadow-lg ring-2 ring-white/20 group-hover:ring-[#FFC107]/50 transition-all duration-300 group-hover:scale-105"
