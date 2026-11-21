@@ -367,13 +367,22 @@ const translations = {
   }
 };
 
+// localStorage throws in sandboxed frames and some privacy modes; the language choice is only a convenience
+function readSavedLanguage() {
+  try { return localStorage.getItem('dss-language'); } catch { return null; }
+}
+
+function saveLanguage(lang) {
+  try { localStorage.setItem('dss-language', lang); } catch { /* not persisted */ }
+}
+
 function getInitialLanguage() {
   const urlLang = new URLSearchParams(window.location.search).get('lang');
   if (urlLang === 'en' || urlLang === 'el') {
-    localStorage.setItem('dss-language', urlLang);
+    saveLanguage(urlLang);
     return urlLang;
   }
-  const savedLang = localStorage.getItem('dss-language');
+  const savedLang = readSavedLanguage();
   if (savedLang === 'en' || savedLang === 'el') return savedLang;
   return navigator.language.startsWith('el') ? 'el' : 'en';
 }
@@ -389,7 +398,7 @@ export function LanguageProvider({ children }) {
   const toggleLanguage = () => {
     const newLang = language === 'en' ? 'el' : 'en';
     setLanguage(newLang);
-    localStorage.setItem('dss-language', newLang);
+    saveLanguage(newLang);
   };
 
   const t = translations[language];
