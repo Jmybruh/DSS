@@ -40,7 +40,7 @@ export default function About() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 bg-gradient-to-br from-[#008B8B] via-[#17A2B8] to-[#5B4FCF] overflow-hidden">
+      <section className="relative pt-32 pb-20 bg-[color:#0B6E7D] bg-gradient-to-br from-[#006D6D] via-[#0B6E7D] to-[#4A3DB8] overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
             <pattern id="about-circuit" x="0" y="0" width="25" height="25" patternUnits="userSpaceOnUse">
@@ -61,7 +61,7 @@ export default function About() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
               {t.aboutPage.heroTitle}
             </h1>
-            <p className="text-xl text-white/80 max-w-2xl mx-auto">
+            <p className="text-xl text-white/90 max-w-2xl mx-auto">
               {t.aboutPage.heroSubtitle}
             </p>
           </motion.div>
@@ -79,7 +79,7 @@ export default function About() {
               viewport={{ once: true }}
               className="relative bg-gradient-to-br from-[#17A2B8]/5 to-[#5B4FCF]/5 rounded-3xl p-10 border border-gray-100"
             >
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#17A2B8] to-[#5B4FCF] flex items-center justify-center mb-6 shadow-lg">
+              <div className="w-16 h-16 rounded-2xl bg-[color:#0B6E7D] bg-gradient-to-br from-[#0B6E7D] to-[#4A3DB8] flex items-center justify-center mb-6 shadow-lg">
                 <Target className="w-8 h-8 text-white" />
               </div>
               <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -166,7 +166,7 @@ export default function About() {
       </section>
 
       {/* Values */}
-      <section className="py-24 bg-gradient-to-br from-[#1a1a2e] via-[#2d2d44] to-[#1a1a2e]">
+      <section className="py-24 bg-[color:#1a1a2e] bg-gradient-to-br from-[#1a1a2e] via-[#2d2d44] to-[#1a1a2e]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -224,7 +224,7 @@ export default function About() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <span className="inline-block px-4 py-1.5 bg-[#17A2B8]/10 text-[#17A2B8] rounded-full text-sm font-semibold mb-4">
+              <span className="inline-block px-4 py-1.5 bg-[#17A2B8]/10 text-[#0E7490] rounded-full text-sm font-semibold mb-4">
                 Expert Team
               </span>
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
@@ -281,7 +281,7 @@ export default function About() {
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               {t.aboutPage.certifications.title}
             </h2>
-            <div className="w-24 h-1.5 bg-gradient-to-r from-[#17A2B8] to-[#5B4FCF] mx-auto rounded-full" />
+            <div className="w-24 h-1.5 bg-[color:#0B6E7D] bg-gradient-to-r from-[#0B6E7D] to-[#4A3DB8] mx-auto rounded-full" />
           </motion.div>
 
           <div className="flex flex-wrap justify-center gap-6">
@@ -295,7 +295,7 @@ export default function About() {
                 className="px-8 py-4 bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-md hover:border-[#FFC107]/30 transition-all"
               >
                 <div className="flex items-center gap-3">
-                  <CheckCircle className="w-5 h-5 text-[#17A2B8]" />
+                  <CheckCircle className="w-5 h-5 text-[#0E7490]" />
                   <span className="font-semibold text-gray-900">{cert}</span>
                 </div>
               </motion.div>
@@ -305,7 +305,7 @@ export default function About() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 bg-gradient-to-br from-[#5B4FCF] via-[#4B0082] to-[#1a1a2e]">
+      <section className="py-24 bg-[color:#4B0082] bg-gradient-to-br from-[#5B4FCF] via-[#4B0082] to-[#1a1a2e]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -315,18 +315,19 @@ export default function About() {
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
               {t.cta.title}
             </h2>
-            <p className="text-xl text-white/80 mb-10 max-w-2xl mx-auto">
+            <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto">
               {t.cta.subtitle}
             </p>
-            <Link to={createPageUrl('Contact')}>
-              <Button
+            <Button
+                asChild
                 size="lg"
                 className="bg-[#FFC107] hover:bg-[#FFD700] text-[#1a1a2e] font-bold px-10 py-7 text-lg shadow-xl hover:shadow-[#FFC107]/30 transition-all duration-300 hover:scale-105 group"
               >
+              <Link to={createPageUrl('Contact')}>
                 {t.cta.button}
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </Link>
+              </Link>
+            </Button>
           </motion.div>
         </div>
       </section>

@@ -50,13 +50,13 @@ export default function ServicesPreview() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="inline-block px-4 py-1.5 bg-[#17A2B8]/10 text-[#17A2B8] rounded-full text-sm font-semibold mb-4">
+          <span className="inline-block px-4 py-1.5 bg-[#17A2B8]/10 text-[#0E7490] rounded-full text-sm font-semibold mb-4">
             {t.services.subtitle}
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             {t.services.title}
           </h2>
-          <div className="w-24 h-1.5 bg-gradient-to-r from-[#17A2B8] to-[#5B4FCF] mx-auto rounded-full" />
+          <div className="w-24 h-1.5 bg-[color:#0B6E7D] bg-gradient-to-r from-[#0B6E7D] to-[#4A3DB8] mx-auto rounded-full" />
         </motion.div>
 
         {/* Services Grid */}
@@ -77,7 +77,7 @@ export default function ServicesPreview() {
                   
                   {/* Icon Container */}
                   <div className="relative mb-6">
-                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#17A2B8] to-[#5B4FCF] flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
+                    <div className="w-16 h-16 rounded-2xl bg-[color:#0B6E7D] bg-gradient-to-br from-[#0B6E7D] to-[#4A3DB8] flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
                       <Icon className="w-8 h-8 text-white" />
                     </div>
                     <div className="absolute -top-2 -right-2 w-8 h-8 bg-[#FFC107] rounded-full flex items-center justify-center opacity-100 transition-all duration-300 shadow-lg">
@@ -86,7 +86,7 @@ export default function ServicesPreview() {
                   </div>
 
                   {/* Content */}
-                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[#17A2B8] transition-colors">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[#0E7490] transition-colors">
                     {service.title}
                   </h3>
                   <p className="text-gray-600 leading-relaxed">
@@ -94,7 +94,7 @@ export default function ServicesPreview() {
                   </p>
 
                   {/* Bottom Accent */}
-                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#17A2B8] to-[#5B4FCF] transform scale-x-100 transition-transform duration-500 origin-left" />
+                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-[color:#0B6E7D] bg-gradient-to-r from-[#0B6E7D] to-[#4A3DB8] transform scale-x-100 transition-transform duration-500 origin-left" />
                 </div>
               </motion.div>
             );
@@ -109,15 +109,17 @@ export default function ServicesPreview() {
           transition={{ delay: 0.6 }}
           className="text-center mt-12"
         >
-          <Link to={createPageUrl('Services')}>
-            <Button
-              size="lg"
-              className="bg-gradient-to-r from-[#17A2B8] to-[#5B4FCF] hover:from-[#008B8B] hover:to-[#4B0082] text-white font-semibold px-8 py-6 shadow-lg hover:shadow-xl transition-all duration-300 group"
-            >
+          <Button
+            asChild
+            size="lg"
+            className="bg-gradient-to-r from-[#0B6E7D] to-[#4A3DB8] hover:from-[#006D6D] hover:to-[#4B0082] text-white font-semibold px-8 py-6 shadow-lg hover:shadow-xl transition-all duration-300 group"
+          >
+            {/* Solid fallback colour goes on the link itself: the Button's class merge drops it next to a gradient */}
+            <Link to={createPageUrl('Services')} className="bg-[#0B6E7D]">
               {t.services.viewAll}
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
-          </Link>
+            </Link>
+          </Button>
         </motion.div>
       </div>
     </section>

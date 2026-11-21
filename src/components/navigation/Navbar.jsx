@@ -28,10 +28,11 @@ export default function Navbar() {
 
   return (
     <nav
+      aria-label={t.nav.mainMenu}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? 'bg-[#008B8B]/95 backdrop-blur-lg shadow-xl'
-          : 'bg-transparent'
+          ? 'bg-[#0B6E7D] shadow-xl'
+          : 'bg-[#0B6E7D]'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -53,7 +54,7 @@ export default function Navbar() {
               <Link
                 key={link.path}
                 to={createPageUrl(link.path)}
-                className="relative px-4 py-2 text-white/90 font-medium hover:text-white transition-colors group"
+                className="relative px-4 py-2 text-white font-medium hover:text-[#FFC107] transition-colors group"
               >
                 {link.name}
                 <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-[#FFC107] group-hover:w-3/4 transition-all duration-300" />
@@ -67,26 +68,29 @@ export default function Navbar() {
             <button
               onClick={toggleLanguage}
               className="flex items-center gap-2 px-3 py-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 hover:border-[#FFC107]/50 transition-all duration-300 group"
-              aria-label="Toggle language"
+              aria-label={language === 'en' ? 'ΕΛ – Αλλαγή γλώσσας σε Ελληνικά' : 'EN – Switch language to English'}
+              lang={language === 'en' ? 'el' : 'en'}
             >
-              <Globe className="w-4 h-4 text-[#FFC107]" />
+              <Globe className="w-4 h-4 text-[#FFC107]" aria-hidden="true" />
               <span className="text-sm font-semibold text-white group-hover:text-[#FFC107] transition-colors">
                 {language === 'en' ? 'ΕΛ' : 'EN'}
               </span>
             </button>
 
             {/* CTA Button - Desktop */}
-            <Link to={createPageUrl('Contact')} className="hidden md:block">
-              <Button className="bg-[#FFC107] hover:bg-[#FFD700] text-[#1a1a2e] font-semibold px-6 shadow-lg hover:shadow-[#FFC107]/30 transition-all duration-300 hover:scale-105">
+            <Button asChild className="hidden md:inline-flex bg-[#FFC107] hover:bg-[#FFD700] text-[#1a1a2e] font-semibold px-6 shadow-lg hover:shadow-[#FFC107]/30 transition-all duration-300 hover:scale-105">
+              <Link to={createPageUrl('Contact')}>
                 {t.nav.getQuote}
-              </Button>
-            </Link>
+              </Link>
+            </Button>
 
             {/* Mobile Menu Toggle */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="lg:hidden p-2 rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
-              aria-label="Toggle menu"
+              aria-label={isMobileMenuOpen ? t.nav.closeMenu : t.nav.openMenu}
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="mobile-menu"
             >
               {isMobileMenuOpen ? (
                 <X className="w-6 h-6 text-white" />
@@ -105,7 +109,8 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-[#008B8B]/98 backdrop-blur-lg border-t border-white/10"
+            id="mobile-menu"
+            className="lg:hidden bg-[#0B6E7D] border-t border-white/10"
           >
             <div className="px-4 py-6 space-y-2">
               {navLinks.map((link, index) => (
@@ -130,14 +135,14 @@ export default function Navbar() {
                 transition={{ delay: navLinks.length * 0.1 }}
                 className="pt-4"
               >
-                <Link
-                  to={createPageUrl('Contact')}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  <Button className="w-full bg-[#FFC107] hover:bg-[#FFD700] text-[#1a1a2e] font-semibold py-3">
+                <Button asChild className="w-full bg-[#FFC107] hover:bg-[#FFD700] text-[#1a1a2e] font-semibold py-3">
+                  <Link
+                    to={createPageUrl('Contact')}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
                     {t.nav.getQuote}
-                  </Button>
-                </Link>
+                  </Link>
+                </Button>
               </motion.div>
             </div>
           </motion.div>

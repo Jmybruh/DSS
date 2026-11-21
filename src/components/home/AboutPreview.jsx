@@ -48,7 +48,7 @@ export default function AboutPreview() {
                 className="absolute -bottom-8 -right-8 bg-white rounded-2xl p-6 shadow-xl border border-gray-100"
               >
                 <div className="flex items-center gap-4">
-                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#17A2B8] to-[#5B4FCF] flex items-center justify-center">
+                  <div className="w-14 h-14 rounded-xl bg-[color:#0B6E7D] bg-gradient-to-br from-[#0B6E7D] to-[#4A3DB8] flex items-center justify-center">
                     <Shield className="w-7 h-7 text-white" />
                   </div>
                   <div>
@@ -94,22 +94,23 @@ export default function AboutPreview() {
                   className="flex items-center gap-3"
                 >
                   <div className="w-6 h-6 rounded-full bg-[#17A2B8]/10 flex items-center justify-center flex-shrink-0">
-                    <CheckCircle className="w-4 h-4 text-[#17A2B8]" />
+                    <CheckCircle className="w-4 h-4 text-[#0E7490]" />
                   </div>
                   <span className="text-gray-700 font-medium">{point}</span>
                 </motion.div>
               ))}
             </div>
 
-            <Link to={createPageUrl('About')}>
-              <Button
+            <Button
+                asChild
                 size="lg"
                 className="bg-[#5B4FCF] hover:bg-[#4B0082] text-white font-semibold px-8 shadow-lg hover:shadow-xl transition-all duration-300 group"
               >
+              <Link to={createPageUrl('About')}>
                 {t.about.learnMore}
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </Link>
+              </Link>
+            </Button>
           </motion.div>
         </div>
       </div>

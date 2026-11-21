@@ -4,7 +4,14 @@ const LanguageContext = createContext();
 
 const translations = {
   en: {
+    espa: {
+      bannerAlt: 'ESPA 2021-2027: Short description of the action (PDF, opens in a new tab)'
+    },
     nav: {
+      mainMenu: 'Main menu',
+      openMenu: 'Open menu',
+      closeMenu: 'Close menu',
+      skipToContent: 'Skip to main content',
       home: 'Home',
       services: 'Services',
       about: 'About Us',
@@ -178,7 +185,14 @@ const translations = {
     }
   },
   el: {
+    espa: {
+      bannerAlt: 'ΕΣΠΑ 2021-2027: Σύντομη περιγραφή πράξης (PDF, ανοίγει σε νέα καρτέλα)'
+    },
     nav: {
+      mainMenu: 'Κύριο μενού',
+      openMenu: 'Άνοιγμα μενού',
+      closeMenu: 'Κλείσιμο μενού',
+      skipToContent: 'Μετάβαση στο κύριο περιεχόμενο',
       home: 'Αρχική',
       services: 'Υπηρεσίες',
       about: 'Σχετικά',
@@ -353,24 +367,24 @@ const translations = {
   }
 };
 
-export function LanguageProvider({ children }) {
-  const [language, setLanguage] = useState('en');
+function getInitialLanguage() {
+  const urlLang = new URLSearchParams(window.location.search).get('lang');
+  if (urlLang === 'en' || urlLang === 'el') {
+    localStorage.setItem('dss-language', urlLang);
+    return urlLang;
+  }
+  const savedLang = localStorage.getItem('dss-language');
+  if (savedLang === 'en' || savedLang === 'el') return savedLang;
+  return navigator.language.startsWith('el') ? 'el' : 'en';
+}
 
+export function LanguageProvider({ children }) {
+  const [language, setLanguage] = useState(getInitialLanguage);
+
+  // Screen readers pick pronunciation from <html lang>, so keep it in sync with the UI language
   useEffect(() => {
-    const savedLang = localStorage.getItem('dss-language');
-    const urlParams = new URLSearchParams(window.location.search);
-    const urlLang = urlParams.get('lang');
-    
-    if (urlLang && (urlLang === 'en' || urlLang === 'el')) {
-      setLanguage(urlLang);
-      localStorage.setItem('dss-language', urlLang);
-    } else if (savedLang) {
-      setLanguage(savedLang);
-    } else {
-      const browserLang = navigator.language.startsWith('el') ? 'el' : 'en';
-      setLanguage(browserLang);
-    }
-  }, []);
+    document.documentElement.lang = language;
+  }, [language]);
 
   const toggleLanguage = () => {
     const newLang = language === 'en' ? 'el' : 'en';

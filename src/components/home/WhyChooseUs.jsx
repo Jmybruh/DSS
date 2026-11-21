@@ -14,7 +14,7 @@ export default function WhyChooseUs() {
   ];
 
   return (
-    <section className="py-24 bg-gradient-to-br from-[#1a1a2e] via-[#2d2d44] to-[#1a1a2e] relative overflow-hidden">
+    <section className="py-24 bg-[color:#1a1a2e] bg-gradient-to-br from-[#1a1a2e] via-[#2d2d44] to-[#1a1a2e] relative overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#5B4FCF]/20 rounded-full blur-3xl" />

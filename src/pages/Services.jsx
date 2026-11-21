@@ -60,7 +60,7 @@ export default function Services() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 bg-gradient-to-br from-[#008B8B] via-[#17A2B8] to-[#5B4FCF] overflow-hidden">
+      <section className="relative pt-32 pb-20 bg-[color:#0B6E7D] bg-gradient-to-br from-[#006D6D] via-[#0B6E7D] to-[#4A3DB8] overflow-hidden">
         {/* Pattern */}
         <div className="absolute inset-0 opacity-10">
           <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -81,14 +81,14 @@ export default function Services() {
           >
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-6">
               <Shield className="w-4 h-4 text-[#FFC107]" />
-              <span className="text-white/90 text-sm font-medium">
+              <span className="text-white text-sm font-medium">
                 {t.services.subtitle}
               </span>
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
               {t.servicesPage.heroTitle}
             </h1>
-            <p className="text-xl text-white/80 max-w-2xl mx-auto">
+            <p className="text-xl text-white/90 max-w-2xl mx-auto">
               {t.servicesPage.heroSubtitle}
             </p>
           </motion.div>
@@ -116,7 +116,7 @@ export default function Services() {
                   {/* Content */}
                   <div className={isEven ? 'lg:order-1' : 'lg:order-2'}>
                     <div className="flex items-center gap-4 mb-6">
-                      <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#17A2B8] to-[#5B4FCF] flex items-center justify-center shadow-lg">
+                      <div className="w-16 h-16 rounded-2xl bg-[color:#0B6E7D] bg-gradient-to-br from-[#0B6E7D] to-[#4A3DB8] flex items-center justify-center shadow-lg">
                         <Icon className="w-8 h-8 text-white" />
                       </div>
                       <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
@@ -139,19 +139,19 @@ export default function Services() {
                           className="flex items-center gap-3"
                         >
                           <div className="w-5 h-5 rounded-full bg-[#17A2B8]/10 flex items-center justify-center flex-shrink-0">
-                            <CheckCircle className="w-3.5 h-3.5 text-[#17A2B8]" />
+                            <CheckCircle className="w-3.5 h-3.5 text-[#0E7490]" />
                           </div>
                           <span className="text-gray-700 text-sm">{feature}</span>
                         </motion.div>
                       ))}
                     </div>
 
-                    <Link to={createPageUrl('Contact')}>
-                      <Button className="bg-[#FFC107] hover:bg-[#FFD700] text-[#1a1a2e] font-semibold group">
+                    <Button asChild className="bg-[#FFC107] hover:bg-[#FFD700] text-[#1a1a2e] font-semibold group">
+                      <Link to={createPageUrl('Contact')}>
                         {t.nav.getQuote}
                         <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                      </Button>
-                    </Link>
+                      </Link>
+                    </Button>
                   </div>
 
                   {/* Visual */}
@@ -187,7 +187,7 @@ export default function Services() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-br from-[#5B4FCF] via-[#4B0082] to-[#1a1a2e] relative overflow-hidden">
+      <section className="py-24 bg-[color:#4B0082] bg-gradient-to-br from-[#5B4FCF] via-[#4B0082] to-[#1a1a2e] relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
             <pattern id="cta-pattern" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
@@ -206,18 +206,19 @@ export default function Services() {
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
               {t.servicesPage.ctaTitle}
             </h2>
-            <p className="text-xl text-white/80 mb-10 max-w-2xl mx-auto">
+            <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto">
               {t.servicesPage.ctaDescription}
             </p>
-            <Link to={createPageUrl('Contact')}>
-              <Button
+            <Button
+                asChild
                 size="lg"
                 className="bg-[#FFC107] hover:bg-[#FFD700] text-[#1a1a2e] font-bold px-10 py-7 text-lg shadow-xl hover:shadow-[#FFC107]/30 transition-all duration-300 hover:scale-105 group"
               >
+              <Link to={createPageUrl('Contact')}>
                 {t.servicesPage.ctaButton}
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </Link>
+              </Link>
+            </Button>
           </motion.div>
         </div>
       </section>

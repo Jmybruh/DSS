@@ -19,7 +19,7 @@ export default function Contact() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 bg-gradient-to-br from-[#008B8B] via-[#17A2B8] to-[#5B4FCF] overflow-hidden">
+      <section className="relative pt-32 pb-20 bg-[color:#0B6E7D] bg-gradient-to-br from-[#006D6D] via-[#0B6E7D] to-[#4A3DB8] overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
             <pattern id="contact-circuit" x="0" y="0" width="25" height="25" patternUnits="userSpaceOnUse">
@@ -39,14 +39,14 @@ export default function Contact() {
           >
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-6">
               <MessageSquare className="w-4 h-4 text-[#FFC107]" />
-              <span className="text-white/90 text-sm font-medium">
+              <span className="text-white text-sm font-medium">
                 {t.contact.info.emergency}
               </span>
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
               {t.contact.title}
             </h1>
-            <p className="text-xl text-white/80 max-w-2xl mx-auto">
+            <p className="text-xl text-white/90 max-w-2xl mx-auto">
               {t.contact.description}
             </p>
           </motion.div>
@@ -76,14 +76,14 @@ export default function Contact() {
                     className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:border-[#FFC107]/30 transition-all"
                   >
                     <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#17A2B8] to-[#5B4FCF] flex items-center justify-center flex-shrink-0">
+                      <div className="w-12 h-12 rounded-xl bg-[color:#0B6E7D] bg-gradient-to-br from-[#0B6E7D] to-[#4A3DB8] flex items-center justify-center flex-shrink-0">
                         <Icon className="w-6 h-6 text-white" />
                       </div>
                       <div>
                         <p className="text-gray-500 text-sm mb-1">{item.label}</p>
                         <a
                           href={item.href}
-                          className="text-gray-900 font-semibold hover:text-[#17A2B8] transition-colors"
+                          className="text-gray-900 font-semibold hover:text-[#0E7490] transition-colors"
                         >
                           {item.value}
                         </a>
@@ -103,7 +103,7 @@ export default function Contact() {
             >
               <div className="bg-white rounded-3xl p-6 sm:p-8 md:p-12 shadow-xl border border-gray-100">
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#5B4FCF] to-[#4B0082] flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 rounded-xl bg-[color:#4B0082] bg-gradient-to-br from-[#5B4FCF] to-[#4B0082] flex items-center justify-center flex-shrink-0">
                     <Shield className="w-6 h-6 text-[#FFC107]" />
                   </div>
                   <h2 className="text-2xl md:text-3xl font-bold text-gray-900">{t.contact.call.title}</h2>
@@ -113,8 +113,8 @@ export default function Contact() {
                   {t.contact.call.description}
                 </p>
 
-                <div className="rounded-2xl bg-gradient-to-br from-[#008B8B] via-[#17A2B8] to-[#5B4FCF] p-6 sm:p-8 text-center mb-8">
-                  <p className="text-white/80 text-sm font-medium uppercase tracking-wider mb-2">
+                <div className="rounded-2xl bg-[color:#0B6E7D] bg-gradient-to-br from-[#006D6D] via-[#0B6E7D] to-[#4A3DB8] p-6 sm:p-8 text-center mb-8">
+                  <p className="text-white text-sm font-medium uppercase tracking-wider mb-2">
                     {t.contact.call.label}
                   </p>
                   <a
@@ -139,7 +139,7 @@ export default function Contact() {
                 <ul className="space-y-3 mb-8">
                   {t.contact.call.steps.map((step, index) => (
                     <li key={index} className="flex items-start gap-3 text-gray-700">
-                      <CheckCircle className="w-5 h-5 text-[#17A2B8] flex-shrink-0 mt-0.5" />
+                      <CheckCircle className="w-5 h-5 text-[#0E7490] flex-shrink-0 mt-0.5" />
                       <span>{step}</span>
                     </li>
                   ))}
@@ -147,7 +147,7 @@ export default function Contact() {
 
                 <p className="text-sm text-gray-500 border-t border-gray-100 pt-6">
                   {t.contact.call.emailPrefix}{' '}
-                  <a href={`mailto:${EMAIL}`} className="font-medium text-[#17A2B8] hover:underline">
+                  <a href={`mailto:${EMAIL}`} className="font-medium text-[#0E7490] hover:underline">
                     {EMAIL}
                   </a>
                 </p>

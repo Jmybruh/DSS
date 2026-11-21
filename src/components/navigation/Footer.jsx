@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 import { useLanguage } from '../LanguageContext';
-import { Shield, Phone, Mail, Facebook, Linkedin, Twitter, Instagram } from 'lucide-react';
+import { Shield, Phone, Mail } from 'lucide-react';
 
 export default function Footer() {
   const { t } = useLanguage();
@@ -22,7 +22,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="relative bg-gradient-to-b from-[#1a1a2e] to-[#0f0f1a] text-white overflow-hidden">
+    <footer className="relative bg-[color:#1a1a2e] bg-gradient-to-b from-[#1a1a2e] to-[#0f0f1a] text-white overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -47,20 +47,9 @@ export default function Footer() {
                 style={{ imageRendering: 'crisp-edges' }}
               />
             </div>
-            <p className="text-gray-400 text-sm leading-relaxed mb-6">
+            <p className="text-gray-300 text-sm leading-relaxed mb-6">
               {t.footer.description}
             </p>
-            <div className="flex gap-3">
-              {[Facebook, Linkedin, Twitter, Instagram].map((Icon, index) => (
-                <a
-                  key={index}
-                  href="#"
-                  className="w-10 h-10 rounded-lg bg-white/5 hover:bg-[#FFC107] flex items-center justify-center group transition-all duration-300"
-                >
-                  <Icon className="w-5 h-5 text-gray-400 group-hover:text-[#1a1a2e] transition-colors" />
-                </a>
-              ))}
-            </div>
           </div>
 
           {/* Quick Links */}
@@ -73,7 +62,7 @@ export default function Footer() {
                 <li key={link.path + link.name}>
                   <Link
                     to={createPageUrl(link.path)}
-                    className="text-gray-400 hover:text-[#FFC107] transition-colors flex items-center gap-2 group"
+                    className="text-gray-300 hover:text-[#FFC107] transition-colors flex items-center gap-2 group"
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-[#5B4FCF] group-hover:bg-[#FFC107] transition-colors" />
                     {link.name}
@@ -93,7 +82,7 @@ export default function Footer() {
                 <li key={index}>
                   <Link
                     to={createPageUrl(link.path)}
-                    className="text-gray-400 hover:text-[#FFC107] transition-colors flex items-center gap-2 group"
+                    className="text-gray-300 hover:text-[#FFC107] transition-colors flex items-center gap-2 group"
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-[#5B4FCF] group-hover:bg-[#FFC107] transition-colors" />
                     {link.name}
@@ -113,13 +102,13 @@ export default function Footer() {
                 <div className="w-10 h-10 rounded-lg bg-[#5B4FCF]/20 flex items-center justify-center flex-shrink-0">
                   <Phone className="w-5 h-5 text-[#FFC107]" />
                 </div>
-                <p className="text-gray-400 text-sm">6973847867</p>
+                <a href="tel:+306973847867" className="text-gray-300 hover:text-[#FFC107] text-sm transition-colors">6973847867</a>
               </li>
               <li className="flex items-start gap-3">
                 <div className="w-10 h-10 rounded-lg bg-[#5B4FCF]/20 flex items-center justify-center flex-shrink-0">
                   <Mail className="w-5 h-5 text-[#FFC107]" />
                 </div>
-                <p className="text-gray-400 text-sm">info@dssgreece.gr</p>
+                <a href="mailto:info@dssgreece.gr" className="text-gray-300 hover:text-[#FFC107] text-sm transition-colors">info@dssgreece.gr</a>
               </li>
             </ul>
           </div>
@@ -128,17 +117,11 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="mt-16 pt-8 border-t border-white/10">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-500 text-sm">
+            <p className="text-gray-300 text-sm">
               © {new Date().getFullYear()} DSS - Digital Security Systems. {t.footer.rights}
             </p>
             <div className="flex items-center gap-6">
-              <a href="#" className="text-gray-500 hover:text-[#FFC107] text-sm transition-colors">
-                {t.footer.privacy}
-              </a>
-              <a href="#" className="text-gray-500 hover:text-[#FFC107] text-sm transition-colors">
-                {t.footer.terms}
-              </a>
-              <div className="flex items-center gap-2 text-gray-500 text-sm">
+              <div className="flex items-center gap-2 text-gray-300 text-sm">
                 <Shield className="w-4 h-4 text-green-500" />
                 <span>SSL Secured</span>
               </div>

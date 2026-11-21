@@ -7,10 +7,13 @@ import { ArrowRight, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export default function HeroSection() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const espaBanner = language === 'en'
+    ? { src: '/espa/espa-banner-en.jpg', width: 1920, height: 234 }
+    : { src: '/espa/espa-banner-el.jpg', width: 2000, height: 218 };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#008B8B] via-[#17A2B8] to-[#5B4FCF]">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[color:#0B6E7D] bg-gradient-to-br from-[#006D6D] via-[#0B6E7D] to-[#4A3DB8]">
       {/* Animated Background Pattern */}
       <div className="absolute inset-0">
         <svg className="absolute w-full h-full opacity-10" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -41,7 +44,23 @@ export default function HeroSection() {
         />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-32 w-full">
+        {/* ΕΣΠΑ publicity banner: required above the fold, links to the action summary PDF */}
+        <a
+          href="/espa/syntomi-perigrafi-praxis.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block w-full max-w-3xl mx-auto mb-12 bg-white rounded-xl p-2 sm:p-3 shadow-xl transition-shadow hover:ring-4 hover:ring-[#FFC107] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#FFC107]"
+        >
+          <img
+            src={espaBanner.src}
+            width={espaBanner.width}
+            height={espaBanner.height}
+            alt={t.espa.bannerAlt}
+            className="w-full h-auto"
+          />
+        </a>
+
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <motion.div
@@ -58,7 +77,7 @@ export default function HeroSection() {
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-8"
             >
               <div className="w-2 h-2 bg-[#FFC107] rounded-full animate-pulse" />
-              <span className="text-white/90 text-sm font-medium">24/7 Security Monitoring</span>
+              <span className="text-white text-sm font-medium">24/7 Security Monitoring</span>
             </motion.div>
 
             {/* Headline */}
@@ -81,7 +100,7 @@ export default function HeroSection() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6 }}
-              className="text-lg sm:text-xl text-white/80 mb-10 max-w-xl mx-auto lg:mx-0"
+              className="text-lg sm:text-xl text-white/90 mb-10 max-w-xl mx-auto lg:mx-0"
             >
               {t.hero.subheadline}
             </motion.p>
@@ -93,24 +112,26 @@ export default function HeroSection() {
               transition={{ delay: 0.8 }}
               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
             >
-              <Link to={createPageUrl('Contact')}>
-                <Button
+              <Button
+                  asChild
                   size="lg"
                   className="bg-[#FFC107] hover:bg-[#FFD700] text-[#1a1a2e] font-semibold px-8 py-6 text-lg shadow-xl hover:shadow-[#FFC107]/30 transition-all duration-300 hover:scale-105 group"
                 >
+                <Link to={createPageUrl('Contact')}>
                   {t.hero.cta1}
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </Link>
-              <Link to={createPageUrl('Services')}>
-                <Button
+                </Link>
+              </Button>
+              <Button
+                  asChild
                   size="lg"
                   variant="outline"
                   className="border-2 border-[#FFC107] bg-white/10 text-white hover:bg-white/20 hover:border-[#FFD700] font-semibold px-8 py-6 text-lg transition-all duration-300"
                 >
+                <Link to={createPageUrl('Services')}>
                   {t.hero.cta2}
-                </Button>
-              </Link>
+                </Link>
+              </Button>
             </motion.div>
 
             {/* Trust Badges */}
@@ -122,20 +143,20 @@ export default function HeroSection() {
             >
               <div className="flex items-center gap-2">
                 <Shield className="w-5 h-5 text-[#FFC107]" />
-                <span className="text-white/70 text-sm">ISO Certified</span>
+                <span className="text-white/90 text-sm">ISO Certified</span>
               </div>
               <div className="flex items-center gap-2">
                 <div className="flex -space-x-2">
                   {[1, 2, 3, 4].map((i) => (
                     <div
                       key={i}
-                      className="w-8 h-8 rounded-full bg-gradient-to-br from-[#5B4FCF] to-[#4B0082] border-2 border-[#008B8B] flex items-center justify-center text-xs text-white font-bold"
+                      className="w-8 h-8 rounded-full bg-[color:#4B0082] bg-gradient-to-br from-[#5B4FCF] to-[#4B0082] border-2 border-[#008B8B] flex items-center justify-center text-xs text-white font-bold"
                     >
                       {i}K
                     </div>
                   ))}
                 </div>
-                <span className="text-white/70 text-sm">Trusted Clients</span>
+                <span className="text-white/90 text-sm">Trusted Clients</span>
               </div>
             </motion.div>
           </motion.div>
@@ -165,7 +186,7 @@ export default function HeroSection() {
                 />
                 
                 {/* Inner Circle */}
-                <div className="relative w-64 h-64 rounded-full bg-gradient-to-br from-[#5B4FCF] to-[#4B0082] flex items-center justify-center shadow-2xl">
+                <div className="relative w-64 h-64 rounded-full bg-[color:#4B0082] bg-gradient-to-br from-[#5B4FCF] to-[#4B0082] flex items-center justify-center shadow-2xl">
                   <div className="absolute inset-2 rounded-full bg-gradient-to-br from-[#5B4FCF]/80 to-[#4B0082]/80 backdrop-blur-sm" />
                   
                   {/* Logo */}

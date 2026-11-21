@@ -41,7 +41,7 @@ export default function StatsSection() {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-r from-[#17A2B8] via-[#008B8B] to-[#5B4FCF] relative overflow-hidden">
+    <section className="py-20 bg-[color:#0B6E7D] bg-gradient-to-r from-[#0B6E7D] via-[#006D6D] to-[#4A3DB8] relative overflow-hidden">
       {/* Pattern Overlay */}
       <div className="absolute inset-0 opacity-10">
         <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -71,7 +71,7 @@ export default function StatsSection() {
                 <div className="text-4xl md:text-5xl font-bold text-white mb-2">
                   <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                 </div>
-                <p className="text-white/80 font-medium">{stat.label}</p>
+                <p className="text-white/90 font-medium">{stat.label}</p>
               </motion.div>
             );
           })}
